@@ -1,0 +1,35 @@
+h1,
+p,
+span,
+a {
+  font-family: Fira Sans, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.-z-1 {
+    z-index: -1 !important;
+}
+
+#hero {
+    min-height: 80vh;
+}
+
+@media screen and (min-width: 540px) {
+    #hero {
+        min-height: 50vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #hero {
+        min-height: 100vh;
+    }
+    #about {
+        display: flex;
+        align-items: center;
+        min-height: 60vh;
+    }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I am Marzuki, a Frontend Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/vendor/css/fa-all.min.css" />
+    <link rel="stylesheet" href="assets/vendor/css/tailwind.min.css" />
+    <link rel="stylesheet" href="assets/vendor/css/animate.compat.min.css">
+    
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <script src="assets/vendor/js/wow.min.js"></script>
+    <script src="assets/vendor/js/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div class="p-0 m-0 wow" x-data="app">
+        <app-navbar></app-navbar>
+
+        <section id="hero" class="hero flex items-center wow fadeIn">
+            <div class="container mx-auto max-w-6xl p-6 flex-grow md:text-center">
+                <div class="mb-6 space-y-2 uppercase tracking-widest">
+                    <span class="block text-3xl text-gray-700 font-light">hey there !</span>
+                    <h1 class="text-4xl font-bold">i am marzuki</h1>
+                    <span class="block text-3xl font-light">a front end web engineer</span>
+                </div>
+                <div class="inline-flex md:mx-auto"
+                    x-data="{social:[{link:'#',icon:'facebook'}, {link:'#',icon:'github'}, {link:'#',icon:'linkedin'}]}">
+                    <template x-for="item in social">
+                        <a href="#" class="mr-3 text-3xl hover:text-blue-400"><i :class="'fab fa-'+item.icon"
+                                aria-hidden="true"></i></a>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container mx-auto max-w-6xl p-6">
+                <div class="lg:grid lg:space-x-6 lg:grid-cols-2 place-items-center">
+                    <div class="space-y-6 wow slideInLeft">
+                        <h1 class="text-3xl font-bold capitalize">a frontend web engineer</h1>
+                        <div class="text-lg leading-7 space-y-2">
+                            <p>Hello, I'am a Web Developer and a College Student at Islamic State University of Riau, Pekanbaru, Indonesia. I'am currently working as a Frontend Engineer at a CV. in Pekanbaru, i have experienced in web development specializing in frontend development about 1 year.</p>
+                            <p>I'am always focusing what user needs along developments and so on practicing a better code way, serving a better work for user experiences, feel free to contact me if you need my services.</p>
+                        </div>
+                        <a href="#"
+                            class="inline-block px-12 py-3 uppercase text-white bg-gradient-to-r from-blue-500 to-purple-500 font-bold tracking-widest rounded-md hover:shadow-md hover:from-purple-500 hover:to-blue-500 duration-300"
+                            role="button">download cv</a>
+                    </div>
+                    <div  class="w-full hidden lg:block">
+                        <img src="assets/images/profile.png" alt="Me" class="transform wow fadeIn" data-wow-delay="1s">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="bg-gray-100 lg:max-w-6xl mx-auto lg:rounded-md">
+            <div class="container mx-auto max-w-xl p-6 space-y-6">
+                <h1 class="text-center uppercase font-bold text-xl">daily tools</h1>
+                <div class=" grid gap-y-3 grid-cols-3 md:grid-cols-5 lg:grid-cols-5 place-content-center place-items-center bg-gray-100 text-4xl text-blue-500 font-bold" x-data="{data:['html5','css3-alt','js','react','sass']}">
+                    <template x-for="item in data" class="">
+                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-white shadow hover:bg-blue-500 hover:text-white duration-300 wow fadeIn">
+                            <i :class="'fab fa-'+item"></i>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container mx-auto max-w-6xl p-6 flex-grow space-y-6">
+                <h1 class="text-3xl font-bold capitalize">what i can do?</h1>
+                <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3" x-data="whaticando">
+                    <template x-for="item in data">
+                        <div class="space-y-6 p-6 border border-purple-500 rounded-lg text-center shadow bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 duration-300 hover:text-white wow bounceIn">
+                            <div class="text-6xl">
+                                <i :class="item.icon" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-2xl capitalize" x-text="item.title"></h4>
+                            <p class="font-normal text-lg tracking-wider leading-7" x-text="item.text"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container mx-auto max-w-6xl p-6 flex-grow space-y-6">
+                <h1 class="text-3xl font-bold capitalize">my recent projects</h1>
+                <div class="tabs mb-3" x-data="{show:'web'}">
+                    <div class="tabs-header">
+                        <button
+                            :class="`inline-block rounded-md p-3 w-32 text-xl ${show === 'web' ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'text-blue-500'}`"
+                            @click="show='web'">
+                            Web
+                        </button>
+                        <button
+                            :class="`inline-block rounded-md p-3 w-32 text-xl ${show === 'android' ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'text-blue-500'}`"
+                            @click="show='android'">
+                            Android
+                        </button>
+                    </div>
+
+                    <div class="tabs-content py-3" x-data="recentprojects">
+                        <div class="tabs-content py-3">
+                            <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3 transform duration-300" x-show="show === 'web'"
+                                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                                <template x-for="(item, index) in web">
+                                    <project-card></project-card>
+                                </template>
+                            </div>
+                        </div>
+
+                        <div class="tabs-content py-3">
+                            <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3 transform duration-300" x-show="show === 'android'"
+                                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                                <template x-for="(item, index) in android">
+                                    <project-card></project-card>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <footer class="bg-gray-700">
+            <div class="container mx-auto max-w-6xl p-6 space-y-3 text-center">
+                <h1 class="text-white text-xl uppercase tracking-wider">marzuki</h1>
+                <div class="flex min-w-xl space-x-3 justify-center">
+                    <div class="
+                w-12
+                h-12
+                bg-white
+                rounded-full
+                flex
+                items-center
+                justify-center
+                text-xl text-blue-500
+              ">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </div>
+                    <div class="
+                w-12
+                h-12
+                bg-white
+                rounded-full
+                flex
+                items-center
+                justify-center
+                text-xl text-blue-500
+              ">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </div>
+                    <div class="
+                w-12
+                h-12
+                bg-white
+                rounded-full
+                flex
+                items-center
+                justify-center
+                text-xl text-blue-500
+              ">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/vendor/js/fa-all.min.js"></script>
+
+    <script src="assets/js/templates.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
